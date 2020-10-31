@@ -1,0 +1,37 @@
+table {
+    border-collapse: collapse;
+    width: 70%;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+h3 {
+    font-family: Verdana;
+    color: #123fff;
+}
+
+.BranchesNote {
+    font-weight: bold;
+    color: #2b542c;
+}
+
+.back {
+    font-style: italic;
+    color: #000000;
+    background-color: #dec339;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#commitBtn {
+    vertical-align: middle;
+    -webkit-transition-duration: 0.6s; /* Safari */
+    transition-duration: 0.6s;
+    background-color: #4CAF50; /* Green */
+    color: white;
+}

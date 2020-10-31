@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="M.A.Github">
+    <output-path>$PROJECT_DIR$/out/artifacts/M_A_Github</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="M.A.GithubWeb/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="M.A.GithubWeb" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="artifact" artifact-name="Engine:jar" />
+          <element id="library" level="project" name="gson-2.1" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,20 @@
+.bottomGrid {
+    display: grid;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.header-container {
+    display: grid;
+}
+
+.back {
+    font-style: italic;
+    color: #000000;
+    background-color: #dec339;
+    position: absolute;
+    top: 0;
+    right: 0;
+}

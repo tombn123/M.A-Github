@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script crossorigin="anonymous"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+
+<link href='signin.css' rel='stylesheet' type='text/css'/>
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pr-wrap">
+                <div class="pass-reset">
+                    <label>
+                        Enter the email you signed up with</label>
+                    <input placeholder="Email" type="email"/>
+                    <input class="pass-reset-submit btn btn-success btn-sm" type="submit" value="Submit"/>
+                </div>
+            </div>
+            <div class="wrap">
+                <p class="form-title">
+                    Sign In</p>
+
+                <form action="loginServlet" class="login" method="GET">
+                    <input name="username" placeholder="Username" type="text"/>
+                    <!--<input type="password" placeholder="Password"/>-->
+                    <input class="btn btn-success btn-sm" type="submit" value="Sign In"/>
+                    <!--
+                                        <div class="remember-forgot">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox"/>
+                                                            Remember Me
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 forgot-pass-content">
+                                                    <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                    -->
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="posted-by">Posted By: <a href="http://www.jquery2dotnet.com">Tom Ben Arush</a></div>
+</div>
+
+
+</body>
+</html>

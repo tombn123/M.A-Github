@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--https://www.codexpedia.com/javascript/javascript-add-on-click-event-on-table-rows/--><!--how to add on click on a row of a table using js-->
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!--    <script src="../../common/bootstrap.min.css"></script>-->
+    <link rel='stylesheet' type='text/css' href='repositoryHub.css'/>
+    <link rel='stylesheet' type='text/css' href='shit.css'/>
+    <link rel='stylesheet' type='text/css' href='notifications/notifications.css'/>
+    <script src="../../common/context-path-helper.js"></script>
+    <script src="notifications/notifications.js"></script>
+</head>
+<body>
+<!-----------------------------------------------zivon----------------------------------->
+<nav id="nav-bar" class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+
+    <a href="#menu-toggle" id="menu-toggle" class="navbar-brand"><span class=""></span>Users</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02"
+            aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"><span
+            class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form class="form-inline my-2 my-md-0"></form>
+    </div>
+
+
+    <a class="navbar-brand" id="repoName" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <input id="file-input" type="file" style="display: none;"/>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto ml-4">
+            <li class="nav-item">
+                <a class="nav-link" href="../fork/fork.html">Fork</a>
+                <a id="uploadRepo" class="nav-link">
+                    Upload Repo
+                </a>
+
+            </li>
+        </ul>
+        <span class="navbar-text">
+          <button type="button" id="logoutButton" class="btn btn-outline-warning">Logout</button>
+        </span>
+    </div>
+</nav>
+
+<!-------------------------------------------------zivon----------------------------------------->
+
+
+<div class="container ">
+    <h1>Details</h1>
+    <table class="table table-dark" id="repositoriesDetails">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Repository Name</th>
+            <th scope="col">Latest Commit Time</th>
+            <th scope="col">Message</th>
+            <th scope="col">Active Branch</th>
+            <th scope="col">Commit Amount</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+<!--<div class="upload">
+    <h2>Upload a repository</h2>
+
+    <form action="upload" enctype="multipart/form-data" method="POST">
+        <input type="file" name="repoFile"><br>
+        <input type="Submit" value="Upload File"><br>
+    </form>
+</div>-->
+
+
+<div id="wrapper" class="toggled">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul id="usersList" class="sidebar-nav">
+
+            <!--            <li><a href="#">Contact</a></li>-->
+        </ul>
+    </div> <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+    <!-- /#page-content-wrapper -->
+</div> <!-- /#wrapper -->
+<!-- Bootstrap core JavaScript -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script> <!-- Menu Toggle Script -->
+<script>
+    $(function () {
+        $("#menu-toggle").click(function (e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+
+        $(window).resize(function (e) {
+            if ($(window).width() <= 768) {
+                $("#wrapper").removeClass("toggled");
+            } else {
+                $("#wrapper").addClass("toggled");
+            }
+        });
+    });
+
+</script>
+
+
+<div class="notifications">
+    <h3>Notifications:</h3>
+</div>
+<div class="notifications">
+    <ul id="notificationsList" class="notification-list">
+        <li>
+            <!--<p class="media-heading"><b>Sahar </b>was forked you</p>-->
+        </li>
+
+        <li>
+            <div class="media">
+                <div class="media-left">
+                    <!--<a href="#">
+                        <img src="https://cdn4.iconfinder.com/data/icons/mayssam/512/heart-128.png"
+                             class="media-object cat-icon rounded-circle" alt="...">
+                    </a>-->
+                </div>
+                <div class="media-body">
+                    <ul class="n-user-list">
+                        <!-- <li><a href="#"><img
+                                 src="http://1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png"
+                                 class="avatar rounded" alt="..."></a></li>
+                         <li><a href="#"><img
+                                 src="http://1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png"
+                                 class="avatar rounded" alt="..."></a></li>
+                         <li><a href="#"><img
+                                 src="http://1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png"
+                                 class="avatar rounded" alt="..."></a></li>
+                         <li><a href="#"><img
+                                 src="http://1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png"
+                                 class="avatar rounded" alt="..."></a></li>
+                         <li><a href="#"><img
+                                 src="http://1plusx.com/app/mu-plugins/all-in-one-seo-pack-pro/images/default-user-image.png"
+                                 class="avatar rounded" alt="..."></a></li>-->
+                    </ul>
+                    <!-- <p class="media-heading"><b>Ranjeet Rajput</b> and 4 others Like your Post.</p>-->
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+<script src="repositoryHub.js"></script>
+</body>
+</html>

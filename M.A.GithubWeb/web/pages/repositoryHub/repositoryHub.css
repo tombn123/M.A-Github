@@ -1,0 +1,23 @@
+.bottomGrid {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.header-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.back {
+    font-style: italic;
+    color: #000000;
+    background-color: #dec339;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+

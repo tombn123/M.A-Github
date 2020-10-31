@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Repository Page</title>
+
+    <!--links:-->
+    <link rel='stylesheet' type='text/css' href='repositoryPage.css'/>
+    <link rel="shortcut icon" href="">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+    <!--scripts:-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="pull/pull.js"></script>
+    <script src="push/pushBranch.js"></script>
+    <script src="push/push.js"></script>
+    <script src="newBranch/newBranch.js"></script>
+    <script src="checkout/checkout.js"></script>
+    <script src="commit/commit.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="/M.A.Github/index.html" class="navbar-brand">Home</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <a href="pull/pullRequest/pullRequest.html" id="pullRequestBtn" class="nav-item active nav-link">Pull Requests</a>
+            <a href="#" id="createPullRequestBtn" data-target="#modalRegisterForm"
+               data-toggle="modal"
+               class="nav-item active nav-link">Create Pull Requests</a>
+            <a href="#" id="commitBtn" onclick="commitChanges()" class="nav-item active nav-link">Commit</a>
+            <a href="#" id="pullBtn" onclick="pull()" class="nav item active nav-link">Pull</a>
+            <a href="#" id="pushBtn" onclick="push()" class="nav item active nav-link">Push</a>
+            <a href="#" onclick="newLocalBranch()" class="nav item active nav-link">New Branch</a>
+
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle active" onclick="addAllBranchesForPushing()" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Push Branch</a>
+                <div class="dropdown-menu" id="pushBranch" aria-labelledby="navbarDropdown">
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle active" role="button"
+                   data-toggle="dropdown" onclick="addAllBranchesForCheckout()" aria-haspopup="true"
+                   aria-expanded="false">Checkout</a>
+                <div class="dropdown-menu" id="checkout" aria-labelledby="navbarDropdown">
+                    <!--<a href="#" class="dropdown-item">Aplicações para a área de saúde</a>-->
+                </div>
+            </li>
+        </ul>
+        </form>
+
+        <button class="btn btn-outline-success" id="wcButtonClean">WC</button>
+        <button class="btn btn-danger" id="wcButtonDirty">WC is dirty</button>
+
+        <button class="btn btn-outline-success" onclick="location.href='../repositoryHub/repositoryHub.html';"
+                type="submit">Back
+        </button>
+
+    </div>
+</nav>
+
+
+<!--<h1> Repository Details:</h1>-->
+
+<h4>Repository Name:</h4>
+<div id="repositoryName">
+</div>
+<br/>
+
+<h4>User Name:</h4>
+<div id="userName"></div>
+<br/>
+
+
+<div id="branchesSection">
+    <h4> Branches: </h4>
+
+    <span class="BranchesNote"> <br/>Note: The head Branch is first.<br/></span>
+
+    <ul id="branches"></ul>
+
+    <!--<button name="newBranchBtn" onclick="newLocalBranch()">New Branch</button>-->
+</div>
+<br/>
+<br/>
+
+<div id="commitsSection">
+    <h4> Commits: </h4>
+    <div id="FileSystemShowOnly" class="fileSystem-container">
+        <!--<button type="button" id="GoBackButtonShowOnly">Go Back</button>-->
+        <div id="FileSystemShow_ShowOnly">
+
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">SHA-1</th>
+            <th scope="col">Message</th>
+            <th scope="col">Creator</th>
+            <th scope="col">BranchesPointed</th>
+        </tr>
+        </thead>
+        <tbody id="commitsTable">
+        </tbody>
+    </table>
+
+    <!--<button id="commitBtn" type="button" onclick="commitChanges()">Commit</button>-->
+</div>
+
+
+<div id="pushBranchSection">
+    <ul id="branchesList"></ul>
+    <!--    <button type="button" onclick="pushBranch()">Push Branch</button>-->
+</div>
+
+<div id="pullSection">
+    <!--    <button type="button" onclick="pull()">Pull</button>-->
+</div>
+
+<div id="createPullRequest">
+    <!--    <button type="button" onclick="createPullRequest()">Pull Branch</button>-->
+</div>
+
+<!--<input type="button" class="back" onclick="location.href='../repositoryHub/repositoryHub.html';" value="Back"/>-->
+
+<div id="pullRequestSection">
+    <!--<h3> Pull Requests: </h3>
+
+     <table id="pullRequestsTable">
+         &lt;!&ndash;<tr>
+             <th>Status</th>
+             <th>Message</th>
+             <th>Confirm</th>
+             <th>Denied</th>
+         </tr>&ndash;&gt;
+     </table>-->
+</div>
+
+
+<div id="FileSystem" class="fileSystem-container">
+    <button class='btn btn-success btn-sm' type="button" id="SaveButton">Save</button>
+    <button class='btn btn-success btn-sm' type="button" id="GoBackButton">Go Back</button>
+    <button class='btn btn-success btn-sm' type="button" id="NewFileButton">New FIle</button>
+    <div class="table" id="FileSystemShow">
+
+    </div>
+</div>
+
+<!-------------------------------------------input Pull Request:----------------------------------------------->
+
+<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold">Create Pull Request:</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-3">
+                <div class="md-form mb-5">
+                    <i class="fas fa-user prefix grey-text"></i>
+                    <input type="text" id="baseBranchName" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="baseBranchName">Enter base branch:</label>
+                </div>
+                <div class="md-form mb-5">
+                    <i class="fas fa-envelope prefix grey-text"></i>
+                    <input type="text" id="targetBranchName" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="targetBranchName">Enter target branch:</label>
+                </div>
+
+                <div class="md-form mb-4">
+                    <i class="fas fa-lock prefix grey-text"></i>
+                    <input type="text" id="message" class="form-control validate">
+                    <label data-error="wrong" data-success="right" for="message">Enter you message:</label>
+                </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+                <button id="check" class="btn btn-deep-orange">Create!</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="repositoryPage.js"></script>
+
+<!-------------------------------------------input Pull Request:----------------------------------------------->
+</body>
+</html>
